@@ -9,7 +9,7 @@
  *   is taxed at its own rate:
  *
  *   Bracket 1: $0 – $10,000        → 0%  (tax-free!)
- *   Bracket 2: $10,001 – $30,000   → 10% (only on the amount ABOVE $10,000)
+ *   Bracket 2: $10,001 – $30,000 z  → 10% (only on the amount ABOVE $10,000)
  *   Bracket 3: $30,001 – $70,000   → 20% (only on the amount ABOVE $30,000)
  *   Bracket 4: Over $70,000        → 30% (only on the amount ABOVE $70,000)
  *
@@ -27,4 +27,25 @@
  */
 export function calculateTax(income) {
   // Your code here
+  if(income<=0){
+    return 0
+  }
+  let tax=0
+   if(income>0 && income<=10000){
+    tax=0
+   return tax 
+   }
+   else if(income>=10001 && income<=30000){
+   tax=(10/100)*(income-10000)
+   return tax
+   }
+   else if(income>=30001 && income<=70000){
+    tax = (20/100)*(income-30000) + 2000
+    return tax
+   }
+   else if(income>70000){
+    tax =(30/100)*(income-70000) + 10000
+    return tax
+   }
+
 }
